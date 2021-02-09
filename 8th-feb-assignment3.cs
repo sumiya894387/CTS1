@@ -4,19 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modularity1
+namespace assignment3
 {
-    class class_program2
+    class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-
             //1. Write a program in C# Sharp to count a total number of duplicate elements in an arrayusing System;
 
 
-            int[] num = new int[10];
+            int[] num = new int[6];
             int count = 0;
-            Console.WriteLine("Enter 10 numbers:");
+            Console.WriteLine("Enter  numbers:");
             for (int i = 0; i < num.Length; i++)
             {
                 num[i] = Convert.ToInt16(Console.ReadLine());
@@ -52,19 +51,19 @@ namespace modularity1
             Expected Output :
             The candidate is eligible for admission.*/
 
-            int maths, phy, chem, total_3, total_math_phy;
+            int maths, physics, chemistry, total_3, total_maths_physics;
             Console.Write("Input the marks obtained in Physics :");
-            phy = Convert.ToInt32(Console.ReadLine());
+            physics = Convert.ToByte(Console.ReadLine());
             Console.Write("Input the marks obtained in Chemistry :");
-            chem = Convert.ToInt32(Console.ReadLine());
+            chemistry = Convert.ToByte(Console.ReadLine());
             Console.Write("Input the marks obtained in Mathematics :");
-            maths = Convert.ToInt32(Console.ReadLine());
-            total_3 = maths + phy + chem;
-            total_math_phy = maths + phy;
+            maths = Convert.ToByte(Console.ReadLine());
+            total_3 = maths + physics + chemistry;
+            total_maths_physics = maths + physics;
 
-            if ((maths >= 65) && (phy >= 55) && (chem >= 50))
+            if ((maths >= 65) && (physics >= 55) && (chemistry >= 50))
             {
-                if ((total_3 >= 180) || (total_math_phy >= 140))
+                if ((total_3 >= 180) || (total_maths_physics >= 140))
                     Console.WriteLine("\nThe candidate is eligible for admission.");
             }
             else
@@ -96,7 +95,7 @@ namespace modularity1
 
 
             string custID, custName;
-            double units, charges = 0, surchage = 0, net_amt;
+            double units, charges = 0, surcharge = 0, Net_amount;
             Console.Write("Customer IDNO :");
             custID = Console.ReadLine();
             Console.Write("Customer Name :");
@@ -107,18 +106,40 @@ namespace modularity1
             if (units <= 199)
             {
                 charges = units * 1.20;
-                Console.WriteLine("\nAmount Charges @Rs. 1.20 per unit : {0:N2}", charges);
+                Console.WriteLine("\nAmount Charges @Rs. 1.20 per unit : {0}", charges);
             }
             else if (units >= 200 && units <= 400)
             {
                 charges = units * 1.50;
-                Console.WriteLine("Amount Charges @Rs. 1.50 per unit : {0:N2}", charges);
+                Console.WriteLine("Amount Charges @Rs. 1.50 per unit : {0}", charges);
             }
             else if (units >= 400 && units <= 600)
             {
                 charges = units * 1.80;
+                Console.WriteLine("\nAmount Charges @Rs. 1.80 per unit : {0}", charges);
+
             }
+            else if(units>=600)
+            {
+                charges = units * 2.00;
+                Console.WriteLine("\nAmount Charges @Rs.2.00 per unit : {0}", charges);
+            }
+            if(charges>400)
+
+            {
+                surcharge = ((15 * charges) / 100);
+            }
+            Console.WriteLine("Surcharge amount {0}", surcharge);
+            Net_amount = charges + surcharge;
+            if (Net_amount < 100)
+                Net_amount = 100;
+            Console.WriteLine("Net amount paid by customer:{0}", Net_amount);
+
         }
     }
 }
+
+
+        
+    
 
